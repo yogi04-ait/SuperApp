@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img from '../images/img.png'
 import LoginImageSection from './LoginImageSection';
 import LoginForm from './LoginForm';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../features/userSlice';
 
 
 const Login = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userData = useSelector(state => state.user);
+    const selection = useSelector(state => state.categories);
+
+    useEffect(() => {
+        if (Object.keys(userData).length === 0) {
+            // If userData is empty, redirect to home page
+            navigate('/');
+        } else if (selection.length < 3) {
+            // If userData is not empty but selection length is less than 3, redirect to start page
+            navigate('/start');
+        } else {
+            // If none of the above conditions are true, redirect to homepage
+            navigate('/homepage');
+        }
+
+    }, [userData, selection, navigate])
 
     const handleFormSubmit = (formData) => {
         // console.log(formData)
@@ -17,6 +33,7 @@ const Login = () => {
         navigate('/start');
         // Handle form submission or pass data to parent component
     };
+
 
     return (
         <div className='flex bg-black h-screen'>

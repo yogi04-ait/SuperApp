@@ -3,7 +3,10 @@ import Login from './Component/Login';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from './Component/Homepage';
 import { Provider } from 'react-redux';
-import { store } from './features/store';
+import store from './features/store';
+import DateTimeDisplay from './Component/DateTimeDisplay';
+import Parent from './Component/Parent';
+import NotesApp from './Component/NotesApp';
 
 const App = () => {
   return (

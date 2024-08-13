@@ -1,5 +1,6 @@
 import Card from './Card';
 import Selected from './Selected';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addCategory, removeCategory } from '../features/categorySlice';
 import categoriesType from '../utlis/categories'; // Import the categories data
@@ -9,6 +10,15 @@ import { useNavigate } from 'react-router-dom';
 function Start() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const userData = useSelector(state => state.user);
+
+    useEffect(() => {
+        if (Object.keys(userData).length === 0) {
+            // If userData is empty, redirect to home page
+            navigate('/');
+        }
+
+    }, [userData, navigate])
 
     const selectedCategories = useSelector((state) => state.categories)
 
