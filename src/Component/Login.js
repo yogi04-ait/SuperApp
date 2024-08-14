@@ -22,7 +22,7 @@ const Login = () => {
             navigate('/start');
         } else {
             // If none of the above conditions are true, redirect to homepage
-            navigate('/homepage');
+            navigate('/home');
         }
 
     }, [userData, selection, navigate])

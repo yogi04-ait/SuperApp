@@ -76,27 +76,27 @@ const CountdownTimer = () => {
                     <div className="flex flex-col items-center">
                         <span className="text-lg text-customGray font-semibold">Hours</span>
                         <div className="flex flex-col items-center">
-                            <button onClick={() => handleSetHours(1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropup /></button>
+                            <button onClick={() => handleSetHours(1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropup /></button>
                             <span className="text-2xl text-white">{hours.toString().padStart(2, '0').split('').join(' ')}</span>
-                            <button onClick={() => handleSetHours(-1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropdown /></button>
+                            <button onClick={() => handleSetHours(-1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropdown /></button>
                         </div>
                     </div>
-                    <div className='self-center text-customGray'>:</div>
+                    <div className='relative top-16 text-[#fff]'>:</div>
                     <div className="flex flex-col items-center">
                         <span className="text-lg text-customGray font-semibold">Minutes</span>
                         <div className="flex flex-col items-center">
-                            <button onClick={() => handleSetMinutes(1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropup /></button>
-                            <span className='text-2xl text-white'>{minutes.toString().padStart(2, '0').split('').join(' ')}</span>
-                            <button onClick={() => handleSetMinutes(-1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropdown /></button>
+                            <button onClick={() => handleSetMinutes(1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropup /></button>
+                            <span className='text-2xl text-[#fff]'>{minutes.toString().padStart(2, '0').split('').join(' ')}</span>
+                            <button onClick={() => handleSetMinutes(-1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropdown /></button>
                         </div>
                     </div>
-                    <div className='self-center text-customGray'>:</div>
+                    <div className='relative top-16 text-[#fff]'>:</div>
                     <div className="flex flex-col items-center">
                         <span className="text-lg text-customGray font-semibold">Seconds</span>
                         <div className="flex flex-col items-center">
-                            <button onClick={() => handleSetSeconds(1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropup /></button>
-                            <span className='text-2xl text-white'>{seconds.toString().padStart(2, '0').split('').join(' ')}</span>
-                            <button onClick={() => handleSetSeconds(-1)} className="px-1 text-2xl text-customGray font-bold"><IoMdArrowDropdown /></button>
+                            <button onClick={() => handleSetSeconds(1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropup /></button>
+                            <span className='text-2xl text-[#fff]'>{seconds.toString().padStart(2, '0').split('').join(' ')}</span>
+                            <button onClick={() => handleSetSeconds(-1)} className="px-1 text-3xl text-customGray font-bold"><IoMdArrowDropdown /></button>
                         </div>
                     </div>
                 </div>

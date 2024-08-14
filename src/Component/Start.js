@@ -32,7 +32,7 @@ function Start() {
 
     const nextpage = () => {
         if (selectedCategories.length < 3) return;
-        navigate('/homepage');
+        navigate('/home');
     };
 
     return (

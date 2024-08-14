@@ -8,7 +8,7 @@ const DateTimeDisplay = () => {
         const updateTime = () => setCurrentTime(new Date());
 
         // Set an interval to update time every second
-        const timerId = setInterval(updateTime, 60000);
+        const timerId = setInterval(updateTime, 9000);
 
         // Clear the interval when the component unmounts
         return () => clearInterval(timerId);

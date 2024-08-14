@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from './Component/Homepage';
 import { Provider } from 'react-redux';
 import store from './features/store';
-import DateTimeDisplay from './Component/DateTimeDisplay';
-import Parent from './Component/Parent';
-import NotesApp from './Component/NotesApp';
+import NotFound from './Component/NotFound';
+import NewsComponent from './Component/News';
+
 
 const App = () => {
   return (
@@ -15,7 +15,9 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/start' element={<Start />} />
-          <Route path='/homepage' element={<Homepage />} />
+          <Route path='/home' element={<Homepage />} />
+          <Route path='/news' element={<NewsComponent />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </Provider>
