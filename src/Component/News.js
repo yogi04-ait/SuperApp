@@ -12,7 +12,9 @@ const NewsComponent = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const getHeadlines = async () => {
-        setLoading(true);
+        if(error){
+            setLoading(true);
+        }
         try {
             const data = await fetchTopHeadlines();
             setNews(data.articles);

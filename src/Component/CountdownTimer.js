@@ -102,7 +102,7 @@ const CountdownTimer = () => {
                 </div>
                 <button
                     onClick={handleStartPause}
-                    className={`p-1 bg-[#FF6A6A] text-lg tracking-wider text-white font-medium rounded-3xl`}
+                    className={`p-1 bg-[#FF6A6A] text-base mb-2 tracking-wider text-white font-medium rounded-2xl`}
                 >
                     {isActive ? 'Pause' : 'Start'}
                 </button>

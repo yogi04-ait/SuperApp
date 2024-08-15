@@ -8,6 +8,7 @@ module.exports = {
         singleDay: ['Single Day', 'cursive'],
         dmsans: ['DM Sans', 'sans-serif'],
       },
+
       colors: {
         customGreen: '#72DB73',
         customGray: '#7C7C7C',

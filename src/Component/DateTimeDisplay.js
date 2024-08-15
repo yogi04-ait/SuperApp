@@ -1,11 +1,43 @@
 import React, { useState, useEffect } from 'react';
+import { fetchWeather } from '../utlis/api/weather';
+import { FaThermometerHalf } from "react-icons/fa";
+import { FaWind } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
+
+
+
 
 const DateTimeDisplay = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
+    const [currentWeather, setCurrentWeather] = useState([]);
+    const [city, setCity] = useState('del');
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const getWeather = async () => {
+        if (error) {
+            setLoading(true);
+        }
+        try {
+            const data = await fetchWeather(city);
+            setCurrentWeather(data.current);
+        } catch (err) {
+            setError('Failed to fetch headlines.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
 
     useEffect(() => {
+
+        // Fetch weather 
+        getWeather();
+
         // Function to update the time every second
         const updateTime = () => setCurrentTime(new Date());
+
 
         // Set an interval to update time every second
         const timerId = setInterval(updateTime, 9000);
@@ -35,10 +67,48 @@ const DateTimeDisplay = () => {
 
 
     return (
-        <div className="bg-[#FF4ADE] px-10 rounded-t-lg py-1 text-white text-justify  shadow-md z-50">
-            <div className="flex justify-between items-center gap-12 font-semibold "> {/* Tailwind gap for spacing */}
-                <span className="text-lg">{date}</span>
-                <span className="text-lg">{time}</span>
+        <div className='w-full'>
+            <div className="bg-[#FF4ADE] px-10 rounded-t-lg py-1 text-white text-justify  shadow-md z-50">
+                <div className="flex justify-between items-center gap-12 font-semibold "> {/* Tailwind gap for spacing */}
+                    <span className="text-lg">{date}</span>
+                    <span className="text-lg">{time}</span>
+                </div>
+
+            </div>
+            <div className='flex justify-evenly items-center px-4 text-white'>
+                <div className='flex flex-col items-center'>
+                    <img src={currentWeather?.condition?.icon} alt="Weather Icon" />
+                    <p>{currentWeather?.condition?.text}</p>
+                </div>
+
+                <div className='h-10 border-r border-white'></div>
+                <div className='flex flex-col'>
+                    <p className='text-4xl font-normal mb-2 mt-2'>{currentWeather?.temp_c}℃</p>
+                    <div className='flex gap-2' ><FaThermometerHalf className='self-center' />
+                        <div className='flex flex-col text-xs'>
+                            {Math.floor(currentWeather?.pressure_mb)} mbar
+                            <p>pressure</p>
+                        </div></div>
+                </div>
+                <div className='h-10 border-r border-white'></div>
+
+                <div className='flex flex-col gap-4 mt-3'>
+                    <div className='flex flex-col font-light text-xs '>
+                        <div className='flex gap-5 '><FaWind className='text-xl font-thin' />
+                            <div className='flex flex-col gap-0'>
+                                {currentWeather?.wind_kph} km/h
+                                <p>wind</p>
+                            </div>
+                        </div>
+                        <div className='flex mt-2 gap-2'>
+                            <WiHumidity className='text-3xl' />
+                            <div className='flex flex-col text-xs'>
+                                {currentWeather?.humidity}%
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
