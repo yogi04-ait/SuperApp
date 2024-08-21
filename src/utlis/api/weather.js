@@ -1,5 +1,5 @@
 
-const API_KEY = '2a64d00cc8f1440fa21164523241408';
+const API_KEY = process.env.REACT_APP_WEATHER_API;
 const BASE_URL = 'http://api.weatherapi.com/v1/current.json?';
 
 export const fetchWeather = async (country = 'us') => {

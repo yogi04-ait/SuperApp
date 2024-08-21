@@ -11,8 +11,9 @@ const NewsComponent = () => {
     const [error, setError] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
+
     const getHeadlines = async () => {
-        if(error){
+        if (error) {
             setLoading(true);
         }
         try {
@@ -26,8 +27,6 @@ const NewsComponent = () => {
     };
 
     useEffect(() => {
-
-
         getHeadlines();
     }, []);
 

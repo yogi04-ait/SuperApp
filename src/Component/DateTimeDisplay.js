@@ -67,7 +67,7 @@ const DateTimeDisplay = () => {
 
 
     return (
-        <div className='w-full'>
+        <div className='w-full  h-full'>
             <div className="bg-[#FF4ADE] px-10 rounded-t-lg py-1 text-white text-justify  shadow-md z-50">
                 <div className="flex justify-between items-center gap-12 font-semibold "> {/* Tailwind gap for spacing */}
                     <span className="text-lg">{date}</span>
@@ -75,10 +75,10 @@ const DateTimeDisplay = () => {
                 </div>
 
             </div>
-            <div className='flex justify-evenly items-center px-4 text-white'>
-                <div className='flex flex-col items-center'>
+            <div className='flex justify-evenly items-center max-h-full px-2 text-white'>
+                <div className='flex flex-col items-center '>
                     <img src={currentWeather?.condition?.icon} alt="Weather Icon" />
-                    <p>{currentWeather?.condition?.text}</p>
+                    <p className='text-xs text-wrap w-24 leading-3  '>{currentWeather?.condition?.text}</p>
                 </div>
 
                 <div className='h-10 border-r border-white'></div>
@@ -100,7 +100,7 @@ const DateTimeDisplay = () => {
                                 <p>wind</p>
                             </div>
                         </div>
-                        <div className='flex mt-2 gap-2'>
+                        <div className='flex mt-1 gap-2'>
                             <WiHumidity className='text-3xl' />
                             <div className='flex flex-col text-xs'>
                                 {currentWeather?.humidity}%
